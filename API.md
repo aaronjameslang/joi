@@ -2640,7 +2640,7 @@ const Person = Joi.object({
 
 ## Errors
 
-Joi throws classical javascript `Error`s containing :
+Joi throws `ValidationError`s containing :
 - `name` - `'ValidationError'`.
 - `isJoi` - `true`.
 - `details` - an array of errors :
@@ -2652,6 +2652,17 @@ Joi throws classical javascript `Error`s containing :
         - `label` - label of the value that errored, or the `key` if any, or the default `language.root`.
 - `annotate` - function that returns a string with an annotated version of the object pointing at the places where errors occurred. Takes an optional parameter that, if truthy, will strip the colors out of the output.
 - `_object` - the original object to validate.
+
+Check if an Error is a Joi `ValidationError` like:
+```js
+} catch (error) {
+    if (error instanceof Joi.ValidationError) {
+        // 400
+    } else {
+        // 500
+    }
+}
+```
 
 ### List of errors
 
