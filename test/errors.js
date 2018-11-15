@@ -5,16 +5,9 @@
 const Lab = require('lab');
 const Joi = require('../lib');
 
-
-// Declare internals
-
-const internals = {};
-
-
 // Test shortcuts
 
 const { describe, it, expect } = exports.lab = Lab.script();
-
 
 describe('errors', () => {
 
